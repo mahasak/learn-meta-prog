@@ -1,49 +1,21 @@
-package me.archdev.memoizeme
-
+package testmeta
+import org.scalatest
 import org.scalatest.{Matchers, WordSpec}
-import Macros._
 
-class MacrosTest extends WordSpec with Matchers {
+object TestEntities {
+  @mappable case class SimpleCaseClass(i: Int, s: String)
+}
 
-  "Macros after function transformation" should {
+class MappableTest extends WordSpec with Matchers {
+  import TestEntities._
 
-    "cache function result" in new Context {
-      testFunction("test", 1, 1)
-      testFunction("test", 1, 1)
-      testFunction("test", 1, 1)
-      testFunction("test", 1, 1)
+  "simple case class" should {
+    "deserialize to map" in {
+      val testInstance = SimpleCaseClass(i = 42, s = "something")
+      testInstance.asMap shouldBe Map("i" -> 42, "s" -> "something")
 
-      callsCount shouldBe 1
+      val testInstance2 = SimpleCaseClass(i = 99, s = "somewhere")
+      testInstance2.asMap shouldBe Map("i" -> 99, "s" -> "somewhere")
     }
-
-    "cache function result depends on parameters" in new Context {
-      testFunction("test", 1, 1)
-      testFunction("test1", 1, 1)
-      testFunction("test", 2, 1)
-      testFunction("test", 1, 3)
-
-      callsCount shouldBe 4
-    }
-
-    "cache function result depends on parameters order" in new Context {
-      testFunction("test", 2, 1)
-      testFunction("test", 1, 2)
-
-      callsCount shouldBe 2
-    }
-
   }
-
-  trait Context {
-
-    var callsCount = 0
-
-    @Memoize
-    def testFunction(a: String, b: Int, c: Long) = {
-      callsCount += 1
-      s"$a - $b - $c"
-    }
-
-  }
-
 }

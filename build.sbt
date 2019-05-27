@@ -1,11 +1,18 @@
-name := "learn-meta-prog"
+lazy val commonSettings = Seq(
+  organization := "com.michaelpollmeier",
+  scalaVersion := "2.11.8",
+  libraryDependencies ++= Seq(
+    "org.scalameta" %% "scalameta" % "1.3.0",
+    "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+  ),
+  addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0-M5" cross CrossVersion.full),
+  licenses +=("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html")),
+  homepage := Some(url("https://github.com/mpollmeier/scalameta-tutorial"))
+)
 
-version := "0.1"
+lazy val scalameta_code = project.in(file("."))
+  .settings(commonSettings: _*)
 
-scalaVersion := "2.12.8"
-
-libraryDependencies += "org.scalameta" %% "scalameta" % "1.7.0"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1"
-
-resolvers += Resolver.sonatypeRepo("releases")
-addCompilerPlugin("org.scalameta" % "paradise_2.12.2" % "3.0.0-M8")
+lazy val examples = project.in(file("examples"))
+  .settings(commonSettings: _*)
+  .dependsOn(scalameta_code)

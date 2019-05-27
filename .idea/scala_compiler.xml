@@ -6,5 +6,10 @@
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalameta/paradise_2.12.2/jars/paradise_2.12.2-3.0.0-M8.jar" />
       </plugins>
     </profile>
+    <profile name="sbt 2" modules="examples,scalameta_code">
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scalameta/paradise_2.11.8/jars/paradise_2.11.8-3.0.0-M5.jar" />
+      </plugins>
+    </profile>
   </component>
 </project>

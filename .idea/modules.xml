@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/learn-meta-prog.iml" filepath="$PROJECT_DIR$/.idea/modules/learn-meta-prog.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/learn-meta-prog-build.iml" filepath="$PROJECT_DIR$/.idea/modules/learn-meta-prog-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/examples.iml" filepath="$PROJECT_DIR$/.idea/modules/examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalameta_code.iml" filepath="$PROJECT_DIR$/.idea/modules/scalameta_code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalameta_code-build.iml" filepath="$PROJECT_DIR$/.idea/modules/scalameta_code-build.iml" />
     </modules>
   </component>
 </project>
