@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="learn-meta-prog" />
+    <profile name="sbt 1" modules="learn-meta-prog">
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scalameta/paradise_2.12.2/jars/paradise_2.12.2-3.0.0-M8.jar" />
+      </plugins>
+    </profile>
   </component>
 </project>
